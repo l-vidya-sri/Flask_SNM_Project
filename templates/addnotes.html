@@ -1,18 +1,18 @@
 {% extends 'dashboard.html' %}
 {% block addcss %}
     <title>add</title>
-    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="/static/common.css">  
 {% endblock %}   
 {% block content %}
-    <section>
-        <h1>Add Notes</h1>
-        <div class="content">
+    <section class="commonsection">
+        <h1 class="commoncontenth1">Add Notes</h1>
+        <div class="commoncontent">
             <form method="POST">
-            <p>Title</p>
-            <p><input type="text" placeholder="Enter the title" name="title"/></p>
-            <p>Description</p>
-            <p><textarea rows="4" cols="50" name="desc"></textarea></p>
-            <p><button>Add</button></p>
+            <h3>Title</h3>
+            <p><input type="text" placeholder="Enter the title" class="forminput" name="title"/></p>
+            <h3>Description</h3>
+            <p><textarea rows="4" cols="50"  class="forminput" name="desc"></textarea></p>
+            <p><button class="formbutton">Add</button></p>
             </form>
         </div>
     </section>

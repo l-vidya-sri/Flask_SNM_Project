@@ -24,7 +24,7 @@
 {% endwith %}
 <body>
     <section class="section_content">
-        <div class="content">
+        <div class="dashcontent">
             <nav class="navbar">
                 <a href="{{url_for('dashboard')}}">Home</a>
                 <select name="notes" id="notes" onchange="navigateTo(this.value)">
@@ -40,7 +40,7 @@
                 </select>
                 <form action="{{url_for('search')}}" method="POST">
                     <input class="inputbox" type="text" name="search_box" placeholder="Search here....">
-                    <button>search</button>
+                    <button class="searchbotton"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
                 <a href="{{url_for("logout")}}">Logout</a>
                 <p>{{session.get('user')}}
@@ -51,7 +51,7 @@
     </section>
 {% block content %}{% endblock %}
 {% if data %}
-<table border="1px">
+<table border="1px" class="tablebody">
         <thead>
             <tr>
                 <th>Notes_id</th>

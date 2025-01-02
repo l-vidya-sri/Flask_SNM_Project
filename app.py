@@ -8,7 +8,7 @@ import mysql.connector
 import re
 import flask_excel as excel
 app=Flask(__name__)
-excel.init_excel(app)
+excel.init_excel(app)   
 app.secret_key='codegnan@2018'
 app.config['SESSION_TYPE']='filesystem'
 Session(app)
@@ -238,7 +238,6 @@ def viewallfiles():
             uid=cursor.fetchone()
             cursor.execute('select fid,filename,created_at from filedata where added_by=%s',[uid[0]])
             result=cursor.fetchall()
-            print(result)
         except Exception as e:
             print(e)
             return redirect(url_for("dashboard"))
@@ -306,7 +305,6 @@ def getexceldata():
             uid=cursor.fetchone()
             cursor.execute('select n_id,title,n_description,create_at from notes where user_id=%s',[uid[0]])
             result=cursor.fetchall()
-            print(result)
         except Exception as e:
             print(e)
             return redirect(url_for("dashboard"))
@@ -318,6 +316,7 @@ def getexceldata():
     else:
         flash("please login first")
         return redirect(url_for("login"))
+    
     
 @app.route("/search",methods=['POST','GET'])
 def search():
@@ -351,8 +350,6 @@ def search():
         flash("please login first")
         return redirect(url_for("login"))
         
-
-
 
 @app.route("/logout")
 def logout():
